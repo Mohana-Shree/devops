@@ -1,6 +1,41 @@
 first-1 (azure devops)
 https://aex.dev.azure.com/me?mkt=en-GB
+# Second experiment yaml file:
 
+```
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    displayName: 'Build Stage'
+    jobs:
+      - job: BuildJob
+        displayName: 'Build Job'
+        steps:
+          - script: |
+              echo "Restoring project dependencies..."
+            displayName: 'Restore dependencies'
+
+          - script: |
+              echo "Running unit tests..."
+            displayName: 'Run unit tests'
+
+  - stage: Test
+    displayName: 'Test Stage'
+    dependsOn: Build
+    isSkippable: false
+    jobs:
+      - job: TestJob
+        displayName: 'Test Job'
+        steps:
+          - script: |
+              echo "Running unit tests..."
+            displayName: 'Run unit tests'
+```
 # 🪟 **Procedure: Install Gradle on Windows (Exp 7)**
 
 ## 🔹 Step 1: Install Java (JDK)
