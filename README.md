@@ -38,12 +38,12 @@ stages:
 ```
 # 🪟 **Procedure: Install Gradle on Windows (Exp 7)**
 
-## 🔹 Step 1: Install Java (JDK)
+## Step 1: Install Java (JDK)
 
 Gradle requires Java.
 
 1. Download JDK from:
-   👉 [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)
+    [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)
 
 2. Install it normally.
 
@@ -63,7 +63,7 @@ Gradle requires Java.
    %JAVA_HOME%\bin
    ```
 
-### ✅ Verify:
+### Verify:
 
 Open CMD:
 
@@ -73,17 +73,17 @@ java -version
 
 ---
 
-## 🔹 Step 2: Download Gradle
+## Step 2: Download Gradle
 
 1. Go to:
-   👉 [https://gradle.org/releases/](https://gradle.org/releases/)
+    [https://gradle.org/releases/](https://gradle.org/releases/)
 
 2. Download:
-   ✔ **Binary-only ZIP**
+    **Binary-only ZIP**
 
 ---
 
-## 🔹 Step 3: Extract Gradle
+##  Step 3: Extract Gradle
 
 1. Extract ZIP file
 2. Move folder to:
@@ -92,7 +92,7 @@ java -version
    C:\Gradle
    ```
 
-👉 Final path example:
+ Final path example:
 
 ```
 C:\Gradle\gradle-8.5
@@ -100,7 +100,7 @@ C:\Gradle\gradle-8.5
 
 ---
 
-## 🔹 Step 4: Set Environment Variables
+##  Step 4: Set Environment Variables
 
 ### Add GRADLE_HOME
 
@@ -128,19 +128,18 @@ Edit **Path** → Add:
 
 ---
 
-## 🔹 Step 5: Verify Installation
+##  Step 5: Verify Installation
 
 Open **Command Prompt**:
 
 ```cmd
 gradle -v
 ```
-
-✅ You should see Gradle version info.
+You should see Gradle version info.
 
 ---
 
-# 🚀 Step 6: Create Gradle Project
+#  Step 6: Create Gradle Project
 
 ```cmd
 mkdir HelloGradle
@@ -148,7 +147,7 @@ cd HelloGradle
 gradle init
 ```
 
-👉 Select:
+Select:
 
 * Application
 * Java
@@ -168,14 +167,14 @@ HelloGradle/
       └── main/java/org/example/App.java
 ---
 
-# ▶️ Step 7: Build & Run
+# Step 7: Build & Run
 
 ```cmd
 gradlew build
 gradlew run
 ```
 
-# 🧠 Short Procedure (For Record)
+# Short Procedure (For Record)
 
 1. Install Java JDK and set `JAVA_HOME`.
 2. Download Gradle binary ZIP.
@@ -187,30 +186,30 @@ gradlew run
 
 ---
 
-# ⚠️ Common Errors
+# Common Errors
 
-❌ `'gradle' is not recognized`
+ `'gradle' is not recognized`
 ➡ Restart CMD / check PATH
 
-❌ Wrong JAVA_HOME
+ Wrong JAVA_HOME
 ➡ Verify path carefully
 
 ---
 
-Got it 👍 — here are the **clear, lab-ready steps for Ansible (Exp 6 + Exp 8)**. You can both **perform** and **write this in your record**.
+Got it  — here are the **clear, lab-ready steps for Ansible (Exp 6 + Exp 8)**. You can both **perform** and **write this in your record**.
 
 ---
 
-# 🚀 **ANsible Procedure (Step-by-Step)**
+#  **ANsible Procedure (Step-by-Step)**
 
-## 🔹 Step 1: Install Ansible (Control Node)
+## Step 1: Install Ansible (Control Node)
 
 ```bash
 sudo apt update
 sudo apt install ansible -y
 ```
 
-### ✅ Verify:
+###  Verify:
 
 ```bash
 ansible --version
@@ -218,7 +217,7 @@ ansible --version
 
 ---
 
-## 🔹 Step 2: Setup SSH Between Nodes
+## Step 2: Setup SSH Between Nodes
 
 ### Generate SSH key (Control Node):
 
@@ -243,11 +242,11 @@ ssh-copy-id username@10.10.17.4(ip)
 ssh username@10.10.17.4
 ```
 
-👉 Should login without password
+Should login without password
 
 ---
 
-## 🔹 Step 3: Create Inventory File
+## Step 3: Create Inventory File
 
 ```bash
 nano inventory.ini
@@ -262,13 +261,13 @@ Add:
 
 ---
 
-## 🔹 Step 4: Test Connection Using Ansible
+## Step 4: Test Connection Using Ansible
 
 ```bash
 ansible all -i inventory.ini -m ping
 ```
 
-### ✅ Output:
+### Output:
 
 ```
 pong
@@ -276,9 +275,9 @@ pong
 
 ---
 
-# 🧪 **Experiment 6: Playbook (Install Nginx)**
+#  **Experiment 6: Playbook (Install Nginx)**
 
-## 🔹 Step 5: Create Playbook
+## Step 5: Create Playbook
 
 ```bash
 nano webserver.yml
@@ -308,7 +307,7 @@ Paste:
 
 ---
 
-## 🔹 Step 6: Run Playbook
+## Step 6: Run Playbook
 
 ```bash
 ansible-playbook -i inventory.ini webserver.yml --ask-become-pass
@@ -316,7 +315,7 @@ ansible-playbook -i inventory.ini webserver.yml --ask-become-pass
 
 ---
 
-## 🔹 Step 7: Verify
+## Step 7: Verify
 
 ```bash
 ssh username@10.10.17.4
@@ -325,9 +324,9 @@ nginx -v
 
 ---
 
-# 🧪 **Experiment 8: Roles (Install Apache)**
+# **Experiment 8: Roles (Install Apache)**
 
-## 🔹 Step 8: Create Role
+##  Step 8: Create Role
 
 ```bash
 ansible-galaxy init my_web_role
@@ -335,7 +334,7 @@ ansible-galaxy init my_web_role
 
 ---
 
-## 🔹 Step 9: Edit Role Tasks
+##  Step 9: Edit Role Tasks
 
 ```bash
 nano my_web_role/tasks/main.yml
@@ -360,7 +359,7 @@ Paste:
 
 ---
 
-## 🔹 Step 10: Create Main Playbook
+##  Step 10: Create Main Playbook
 
 ```bash
 nano site.yml
@@ -380,7 +379,7 @@ Paste:
 
 ---
 
-## 🔹 Step 11: Run Role Playbook
+##  Step 11: Run Role Playbook
 
 ```bash
 ansible-playbook -i inventory.ini site.yml -K
@@ -388,7 +387,7 @@ ansible-playbook -i inventory.ini site.yml -K
 
 ---
 
-## 🔹 Step 12: Verify Apache
+##  Step 12: Verify Apache
 
 ```bash
 ssh username@10.10.17.4
@@ -403,7 +402,7 @@ http://10.10.17.4
 
 ---
 
-# 🧠 **Short Procedure (For Record Writing)**
+# **Short Procedure (For Record Writing)**
 
 1. Install Ansible on control node.
 2. Configure SSH between control and managed node.
@@ -418,18 +417,18 @@ http://10.10.17.4
 
 ---
 
-# 🎯 **Final Result**
+# **Final Result**
 
 > Thus, Ansible is installed and playbooks and roles are successfully executed to configure web servers.
 
 ---
 
 If you want next:
-✅ Viva questions + answers
-✅ Diagram (Control node ↔ Managed node)
-✅ Help debug your exact lab error
+ Viva questions + answers
+ Diagram (Control node ↔ Managed node)
+Help debug your exact lab error
 
-Just tell 👍
+Just tell 
 
 
 
